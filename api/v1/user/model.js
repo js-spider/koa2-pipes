@@ -44,7 +44,7 @@ userMDL.getLogs = async (params,user)=>{
 userMDL.createLogs = async (params,user)=>{
     return MS.Log.create(params)
 };
-userMDL.test = async (params,user)=>{
+/*userMDL.test = async (params,user)=>{
     return await MS.User.findOne({
         include:{
             model:MS.UserResource,
@@ -54,7 +54,8 @@ userMDL.test = async (params,user)=>{
             autoKey:user.autoKey,
         }
     })
-}
+}*/
+/*
 userMDL.test1 = async (params,user)=>{
     let userR = await sequelize.query(`
     SELECT u.*,ur.* FROM dc_schema.${MS.User.tableName} u
@@ -73,4 +74,4 @@ userMDL.test1 = async (params,user)=>{
     )
     console.log(userR)
     return userR;
-}
+}*/
