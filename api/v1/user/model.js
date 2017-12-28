@@ -113,3 +113,23 @@ userMDL.test3 = async (params,user)=>{
     console.log(userR)
     return userR;
 }
+
+userMDL.test4 = async (params,user)=>{
+    let userR = await sequelize.query(`
+    SELECT u.*,ur.* FROM dc_schema.${MS.User.tableName} u
+    LEFT JOIN dc_schema."${MS.UserResource.tableName}" ur ON u."autoKey" = ur."userId"
+    WHERE u."autoKey" = :autoKey `,
+        {
+            replacements: { autoKey: user.autoKey },
+            model: MS.User ,
+            include:{
+                model:MS.UserResource,
+                as:'userResource'
+            },
+            type: sequelize.QueryTypes.SELECT ,
+
+        }
+    )
+    console.log(userR)
+    return userR;
+}
