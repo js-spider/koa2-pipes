@@ -44,6 +44,9 @@ userMDL.getLogs = async (params,user)=>{
 userMDL.createLogs = async (params,user)=>{
     return MS.Log.create(params)
 };
+/**
+ * 添加一个注释
+ */
 /*userMDL.test = async (params,user)=>{
     return await MS.User.findOne({
         include:{
